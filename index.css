@@ -1,0 +1,77 @@
+/* Estilo general del body */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('src/img/fondo-login.avif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+}
+
+
+/* Estilo del título */
+h1 {
+  color: #075e54; /* Verde oscuro */
+  font-size: 3rem;
+  margin-bottom: 80px;
+}
+
+/* Contenedor del formulario */
+form {
+  background-color: #202c33; /* Fondo ligeramente más claro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #075e54;
+}
+
+/* Estilo de las etiquetas y campos de entrada */
+form input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #075e54;
+  border-radius: 4px;
+  background-color: #111b21;
+  color: #ffffff;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #20c997; /* Verde claro */
+  background-color: #111b21;
+}
+
+/* Botón de enviar */
+form input[type="submit"] {
+  background-color: #075e54;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #20c997; /* Verde claro */
+}
+
+/* Estilo del mensaje de error */
+#error-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}

@@ -1,0 +1,300 @@
+/* App.css */
+
+body {
+  margin: 0;
+  background-color: #202c33;
+}
+
+/* Contenedor principal ocupa todo el ancho y altura */
+.app {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  color: #E9EDEF;
+}
+
+/* Botón de menú en pantallas pequeñas */
+.menu-button {
+  display: none;
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  padding: 10px 15px;
+  background-color: #075e54;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1;
+}
+
+/* Barra lateral (ChatList) */
+.sidebar {
+  width: 35%;
+  min-width: 250px;
+  background-color: #111B21;
+  border-right: 1px solid #374045;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0); /* Visible por defecto en pantallas grandes */
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 10px;
+  background-color: #111B21;
+  color: #E9EDEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #E9EDEF;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Ocultar la barra lateral en pantallas pequeñas y mostrar con un deslizamiento */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80vw;
+    max-width: 300px;
+    transform: translateX(-100%); /* Oculto por defecto */
+    z-index: 5;
+  }
+
+  /* Mostrar el sidebar cuando está abierto */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Mostrar el botón de menú en pantallas pequeñas */
+  .menu-button {
+    display: block;
+  }
+
+  /* Asegurar que la ventana de chat ocupe todo el ancho cuando la barra lateral está oculta */
+  .chat-window {
+    width: 100vw;
+  }
+}
+
+/* Ajustes en pantallas grandes */
+@media (min-width: 769px) {
+  .sidebar {
+    width: 35%;
+  }
+
+  .chat-window {
+    width: 65%;
+  }
+}
+
+/* Estilos de la ventana de chat */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 65%; /* Asegurarse de que ocupe el resto del ancho disponible */
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #202c33;
+  border-bottom: 1px solid #374045;
+}
+
+.input-box {
+  color: #8696A0;
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #374045;
+  gap: 10px;
+  background-color: #202c33;
+}
+
+input[type="text"] {
+  color: #8696A0;
+  background-color: #293841;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  background-color: #075e54;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-container {
+  display: flex;
+  background-color: #111B21;
+}
+
+.chat-container:hover {
+  background-color: #374045;
+}
+
+.chat-container h4 {
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.chat-container p {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 5px;
+  color: #8696A0 ;
+}
+
+.chat-container .avatar {
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border : 1px solid #ccc;
+}
+
+.chat-info {
+  flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+  text-align: left; /* Alinea el texto a la izquierda */
+  border-top: 1px solid #374045;
+}
+
+.message {
+  max-width: 60%; /* Limitar el ancho de los mensajes */
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.mensaje-container .message.enviado {
+  background-color: #075e54; /* Color para mensajes enviados */
+  color:white;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+.recibido {
+  background-color: #202c33;
+  align-self: flex-start;
+  text-align: left;
+  color: white;
+}
+
+.mensajes {
+  height: 100%;
+  background-image: url('img/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+  scrollbar-color: #1f2b31 #374045;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.contenido {
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex-grow: 1; /* Esto permite que el contenido ocupe el espacio disponible */
+}
+
+.fecha {
+  color: #e1e4e2;
+  margin-bottom: 0px;
+  font-size: 10px;
+  text-align: right;
+}
+
+.emisorDatos p{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #2bc960;
+}
+
+.contenido-mensaje {
+  display: flex;
+  gap: 5px;
+}
+
+.botones-mensajes:hover {
+  background-color: #374045 !important;
+}
+
+.mensaje-container{
+  display: flex;
+  gap: 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.mensaje-container .avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border : 1px solid #ccc;
+}
+
+.ultimo-mensaje {
+  display: flex;
+  justify-content: space-between;
+}
+
+.barra-busqueda {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.no-chat {
+  text-align: center;
+  background-image: url('img/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  /* filtro para transparencia de la imagen */
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
+
+}
