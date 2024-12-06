@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
 // VARIABLES GLOBALES
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
